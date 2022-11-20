@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.body {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 1000px;
+    height: 1000px;
+    background-color: blueviolet;
+}
+
+.setting {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    width: 45%;
+    height: 90%;
+    background-color: aqua;
+}
+
+.setting .color-container{
+    display:  block;
+    position: relative;
+}
+
+.setting .color-container .color-picker {
+    margin: 10px;
+    width: 90%;
+    height: 50px;
+}
+
+.setting .mode-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50px 50px 50px 50px;
+}
+
+.setting .mode-container .color-button {
+    grid-column: span 3;
+}
+
+.setting .mode-container .rainbow-button{
+    grid-column: span 3;
+}
+
+.setting .mode-container .erase-button{
+    grid-column: span 3;
+}
+
+.setting .mode-container .clear-button{
+    grid-column: span 3;
+}
+
+.setting .size-container{
+    display: block;
+    position: relative;
+}
+
+.board{
+    display: grid;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    border: 1px solid #000;
+    background-color: violet;
+    z-index: 2;
+
+}
+
+/* .board::before{
+    content: "";
+    width: 310px;
+    height: 310px;
+    border-radius: 10px;
+    background-color: black;
+} */
+
+.board .cell{
+    grid-column: span 1;
+    background-color: #fff;
+}
