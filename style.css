@@ -9,7 +9,6 @@
     flex-direction: row;
     width: 1000px;
     height: 1000px;
-    background-color: blueviolet;
 }
 
 .setting {
@@ -69,18 +68,9 @@
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
     border: 1px solid #000;
-    background-color: violet;
     z-index: 2;
 
 }
-
-/* .board::before{
-    content: "";
-    width: 310px;
-    height: 310px;
-    border-radius: 10px;
-    background-color: black;
-} */
 
 .board .cell{
     grid-column: span 1;

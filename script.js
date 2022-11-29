@@ -1,5 +1,5 @@
 const boardSize = 300;
-let color = "#fff";
+let color = "#000000";
 let mode = 1;
 
 function generateColor(){
@@ -12,6 +12,7 @@ function generateColor(){
     // colorPicker.setAttribute("id", "color-picker");
     colorPicker.setAttribute("name", "color-picker");
     colorPicker.setAttribute("value", color);
+    console.log(color);
     colorPicker.onchange = e => {
         color = e.target.value;
     }
@@ -43,14 +44,13 @@ function generateMode(){
     colorButton.onclick = ()=>{
         console.log(colorPicker);   
         color = colorPicker[0].value;
-        
         mode = 1;
     }
     rainbowButton.onclick = ()=>{
         mode = 2;
     }
     eraseButton.onclick = ()=>{
-        color = "fff";
+        color = "#fff";
         mode = 3;
     }
     clearButton.onclick = ()=>{
@@ -76,13 +76,12 @@ function generateSize(){
     sizeSlider.setAttribute("type", "range");
     sizeSlider.setAttribute("name", "size-slider");
     sizeSlider.setAttribute("min", "1");
-    sizeSlider.setAttribute("max", "64");
+    sizeSlider.setAttribute("max", "128");
     sizeSlider.setAttribute("value", "1");
 
     sizeSlider.onchange = e => {
         let size = e.target.value;
         renderBoard(size);
-        console.log(e.target.value);
     }
 
     sizeContainer.appendChild(sizeSlider);
@@ -94,15 +93,14 @@ function renderCell(event){
         color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
     }
     event.target.style.backgroundColor = color;
+    console.log(color);
 }
 
 function renderBoard(size){
     let board = document.querySelector(".board");
-    
-    
-    while(board.firstChild){
-        board.removeChild(board.firstChild);
-    }
+    board.remove();
+    board = generateBoard();
+
     board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     for(let i = 0; i < size * size; i++){
@@ -116,15 +114,7 @@ function renderBoard(size){
         // boardContainer.push(cell);
         board.appendChild(cell);
     }
-    // let cells = document.querySelectorAll(".cell");
-    // console.log(cells);
-    // cells.forEach(cell => {
-        // board.appendChild(cell);
-    // });
-    // for(let i = 0; i < size * size; i++){
-    //     board.appendChild(boardContainer[i]);
-    // }
-    console.log(board);
+    document.getElementById("body").appendChild(board);
 }
 
 function generateBoard(){
